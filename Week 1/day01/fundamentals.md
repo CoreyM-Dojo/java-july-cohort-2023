@@ -13,12 +13,14 @@
 - Interpreted vs Compiled languages
 - Object Oriented Programming Language
 - Widely Used in Legacy Code
+- Java Docs
 
 
 ### Installation
 
 - JDK Amazon coretto version 11
 - Path Variables
+
 
 ### Variables and DataTypes
 
@@ -42,8 +44,6 @@
 ### Conditionals & Operators
 - Math operators
 - Logical operators
-
-
-### Loops
-
+- switch
+- ternaries
 

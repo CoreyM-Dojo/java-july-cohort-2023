@@ -42,8 +42,8 @@
      - Double 
 
 ### Conditionals & Operators
-- Math operators
-- Logical operators
+- Math operators +, -, *, /, %
+- Logical operators ==, <,>, <=, >=, &&, ||
 - switch
 - ternaries
 

@@ -7,6 +7,12 @@
 
 ## Lecture 
 
+### Recap
+
+- Strongly Typed languages
+- Object and Primitive Datatypes
+
+
 ### Strings
 
 - Concatenation

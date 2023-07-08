@@ -7,6 +7,7 @@
 
 ## Lecture 
 
+### Loops
 ### Fixed Arrays
 
     - declaring a variable as a fixed array
@@ -25,7 +26,6 @@
 - .get
 - other methods
 
-### Loops
 
 ### Maps (Basically objects or Dictionaries)
 

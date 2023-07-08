@@ -4,6 +4,7 @@ public class Cafe {
 
     public static void main(String[] args) {
 
+
         ArrayList<HashMap<String, Object>> menu = new ArrayList<HashMap<String,Object>>();
     
         HashMap<String, Object> menuItem1 = new HashMap<String,Object>();
@@ -52,5 +53,9 @@ public class Cafe {
     }
 
     
+    
+}
+
+void main() {
     
 }

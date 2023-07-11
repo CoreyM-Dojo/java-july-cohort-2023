@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.ArrayList;
+import StringsLesson.Printable;
 public class Cafe {
 
     public static void main(String[] args) {
@@ -37,7 +38,7 @@ public class Cafe {
         menuItem5.put("price", 7.99);
         menuItem5.put("maxQuantity", 5);
         menu.add(menuItem5);
-
+        
         for (HashMap<String, Object> item : menu) {
             printPriceList(item);
         }

@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+// Test code in AppTest.java
+
 public class Fighter {
 	
 	private static ArrayList<Fighter> fighters = new ArrayList<>();

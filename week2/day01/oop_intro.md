@@ -15,6 +15,11 @@
 
 ### 4 Pillars of OOP
 
+- Encapsulation
+- Inheritance
+- Polymorphism
+- Abstraction
+
 ### Anatomy of a Class
 
 - Naming in Pascal Case

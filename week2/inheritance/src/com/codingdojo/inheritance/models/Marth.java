@@ -4,16 +4,21 @@ public class Marth extends Fighter {
 
 	String specialTaunt;
 	
-	public Marth(String name, String role, Double attack, Boolean hasWeapon, Double damage, String taunt) {
-		super(name, role, attack, hasWeapon, damage, taunt);
+	public Marth() {
+		super("Marth", "Swordsman", 12.0, true, "Hyah hyah");
 		this.specialTaunt = "Minna, miteite kure!";
 	}
 	
 	@Override
 	public void attack(Fighter target) {
-		System.out.println("Double Attack Flash!");
+		System.out.println();
 		super.attack(target);
 		super.attack(target);
+	}
+	
+	@Override
+	public void makeNoise() {
+		System.out.println("Hyah hyah");
 	}
 	
 	

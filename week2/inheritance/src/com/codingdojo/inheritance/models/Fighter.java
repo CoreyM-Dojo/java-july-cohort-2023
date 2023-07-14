@@ -5,7 +5,7 @@ import java.util.Random;
 
 // Test code in AppTest.java
 
-public class Fighter {
+public abstract class Fighter {
 	
 	private static ArrayList<Fighter> fighters = new ArrayList<>();
 	// A class is a blueprint that we build real word representations of objects
@@ -23,12 +23,12 @@ public class Fighter {
 	// Is called when we make new instances of a class
 	public Fighter() {}
 
-	public Fighter(String name, String role, Double attack, Boolean hasWeapon, Double damage, String taunt) {
+	public Fighter(String name, String role, Double attack, Boolean hasWeapon, String taunt) {
 		this.name = name;
 		this.role = role;
 		this.attack = attack;
 		this.hasWeapon = hasWeapon;
-		this.damage = damage;
+		this.damage = 0.0;
 		this.taunt = taunt;
 		Fighter.fighters.add(this);
 	}
@@ -108,6 +108,15 @@ public class Fighter {
 
 	public void setDamage(Double damage) {
 		this.damage = damage;
+	}
+	
+	public static ArrayList<Fighter> getFighters() {
+		return Fighter.fighters;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s -> %s", this.name, this.role);
 	}
 	
 	

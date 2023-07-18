@@ -17,6 +17,10 @@
 - packages
 
 ### What are the 4 pillars of OOP?
+- Encapsulation -> Ability to control what programs have access to eachother
+- Inheritance -> Allows classes to take on the traits and methods of parent classes
+- Polymorphism -> Many forms with similar traits, but unique values
+- Abstraction -> using tools without fully understanding how every part moves
 
 ### Inheritance
 

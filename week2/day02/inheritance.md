@@ -15,8 +15,6 @@
 ### STS
 
 - packages
-- creation wizard
-- QOL features
 
 ### What are the 4 pillars of OOP?
 

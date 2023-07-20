@@ -31,8 +31,17 @@
 
 ### Form data and RequestParams
 
+#### Form  
+- action attribute
+- method attribute
+- label
+- input
+
+#### Inputs
 - name attribute
+- type attribute
 - value attribute
+
 - redirect
 
 ### Session -> Available until the browser closes or you session is invalidated

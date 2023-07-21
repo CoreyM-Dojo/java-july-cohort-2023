@@ -51,8 +51,8 @@
 - counter
 - .getAttribute
 - .setAttribute
-- .isNew()
-- .invalidate()
+- .isNew() - Checks if anything has been added to session yet
+- .invalidate() - clears session data
 
 ### Flash data -> Only available for one redirect
 

@@ -11,5 +11,8 @@ import com.coreym.mvc.models.Dog;
 public interface DogRepository extends CrudRepository<Dog, Long> {
 	
 	public ArrayList<Dog> findAll();
+	
+	// Select age, name, breed FROM dogs WHERE age < ?1
+	public ArrayList<Dog> findAgeNameAndBreedSortByAgeLessThan(Integer age);
 
 }

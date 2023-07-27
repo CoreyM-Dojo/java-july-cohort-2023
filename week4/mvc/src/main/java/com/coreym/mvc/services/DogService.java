@@ -2,6 +2,7 @@ package com.coreym.mvc.services;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import com.coreym.mvc.models.Dog;
 
 import org.springframework.stereotype.Service;
 
@@ -25,10 +26,15 @@ public class DogService {
 		return dogRepo.save(dog);
 	}
 	
-	public Dog findBreedById(Long id) {
+	public Dog find(Long id) {
 		return dogRepo.findById(id).orElse(null);
+	}
+	
+	public ArrayList<Dog> findYoungDogs() {
+		return dogRepo.findAgeNameAndBreedSortByAgeLessThan(5);
 	}
 	
 	
 
 }
+

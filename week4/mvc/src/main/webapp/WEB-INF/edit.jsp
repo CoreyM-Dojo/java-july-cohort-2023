@@ -16,9 +16,11 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Create Page</h1>
+   <h1>Edit Page</h1>
    <a href="/">Home</a>
-   <form:form action="/dogs" method="post" modelAttribute="dog-model">
+   <form:form action="/dogs/update" method="post" modelAttribute="dog-model">
+   		<input type="hidden" name="_method" value="put"/>
+   		<form:input type="hidden" path="id" value="${id}" />
    		<div>
    			<form:label path="name">Name</form:label>
    			<form:errors path="name"/>

@@ -19,6 +19,7 @@
 </head>
 <body>
    <h1>Display One Page</h1>
+   <a href="/">Home</a>
    <p>Name:  <c:out value="${dog.name}"/></p>
    <p>Age:   <c:out value="${dog.age}"/></p>
    <p>Breed: <c:out value="${dog.breed}"/></p>

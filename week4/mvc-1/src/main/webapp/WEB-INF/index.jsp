@@ -18,19 +18,9 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-	<h1>Display All Page</h1>
-	<a href="/dogs">Create Dog</a>
-	<a href="/">Home</a>
-	
-	<c:forEach var="dog" items="${allDogs}">
-		<h3>
-			<a href="/dogs/${dog.id}"><c:out value="${dog.name}"/> </a>	
-		</h3>
-			<a class="btn btn-warning" href="/dogs/edit/${dog.id}">Edit</a>
-			<form action="/dogs/${dog.id}" method="post">
-				<input type="hidden" name="_method" value="delete"/>
-				<button class="btn btn-danger text-light">X</button>
-			</form>
-	</c:forEach>
+	<h1>All my fruits!</h1>
+   <c:forEach var="f" items="${fruits}">
+   		<h2><c:out value="${f.name}"/></h2>
+   </c:forEach>
 </body>
 </html>

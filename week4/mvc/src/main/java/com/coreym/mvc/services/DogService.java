@@ -34,6 +34,14 @@ public class DogService {
 		return dogRepo.findAgeNameAndBreedSortByAgeLessThan(5);
 	}
 	
+	public Dog update(Dog dog) {
+		return dogRepo.save(dog);
+	}
+	
+	public void removeDog(Long id) {
+		dogRepo.deleteById(id);
+	}
+	
 	
 
 }

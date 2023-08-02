@@ -17,3 +17,6 @@
 - input necessary information
 - validations
 - @Transient
+- something a little extra for yall
+
+### MAYBE BCrypt

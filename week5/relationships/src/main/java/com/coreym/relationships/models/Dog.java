@@ -30,6 +30,7 @@ public class Dog {
 	@Size(min=3, max=200)
 	private String name;
 	
+	
 	@NotBlank
 	@Size(min=3, max=200)
 	private String breed;

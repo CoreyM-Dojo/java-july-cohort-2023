@@ -19,5 +19,31 @@
 </head>
 <body>
    <h1>Registration</h1> 
+   
+   <form:form action="registration" method="post" modelAttribute="newUser">
+   		<div class="form-group">
+   			<form:label path="username">Username</form:label>
+   			<form:errors path="username"></form:errors>
+   			<form:input class="form-control" path="username"></form:input>
+   		</div>
+   		<div class="form-group">
+   			<form:label path="email">Email</form:label>
+   			<form:errors path="email"></form:errors>
+   			<form:input class="form-control" path="email"></form:input>
+   		</div>
+   		<div class="form-group">
+   			<form:label path="password">Password</form:label>
+   			<form:errors path="password"></form:errors>
+   			<form:input type="password" class="form-control" path="password"></form:input>
+   		</div>
+   		<div class="form-group">
+   			<form:label path="confirm">Confirm Password</form:label>
+   			<form:errors path="confirm"></form:errors>
+   			<form:input type="password" class="form-control" path="confirm"></form:input>
+   		</div>
+   		<div class="form-group">
+   			<button>Register</button>
+   		</div>
+   </form:form>
 </body>
 </html>

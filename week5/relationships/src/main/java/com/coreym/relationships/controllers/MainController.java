@@ -12,6 +12,8 @@ import com.coreym.relationships.models.Shelter;
 import com.coreym.relationships.services.DogService;
 import com.coreym.relationships.services.ShelterService;
 
+import jakarta.validation.Valid;
+
 @Controller
 public class MainController {
 
@@ -31,13 +33,13 @@ public class MainController {
 	}
 	
 	@PostMapping("/shelters")
-	public String processDog(@ModelAttribute("shelterModel") Shelter shelterModel) {
-		sService.create(shelterModel);
+	public String processDog(@Valid @ModelAttribute("shelter") Shelter shelter ) {
+		sService.create(shelter);
 		return "redirect:/";
 	}
 	
 	@GetMapping("/dogs")
-	public String createDog(@ModelAttribute("dogModel") Dog dogModel, Model model) {
+	public String createDog(@ModelAttribute("dogModel") Dog dog, Model model) {
 		model.addAttribute("allShelters", sService.all());
 		return "createDog.jsp";
 	}

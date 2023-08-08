@@ -6,28 +6,24 @@ import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 
 public class FieldsValueMatchValidator 
-  implements ConstraintValidator<FieldMatch, Object> {
+implements ConstraintValidator<FieldMatch, Object> {
 
-    private String field;
-    private String fieldMatch;
+  private String field;
+  private String fieldMatch;
 
-    public void initialize(FieldMatch constraintAnnotation) {
-        this.field = constraintAnnotation.field();
-        this.fieldMatch = constraintAnnotation.fieldMatch();
-    }
+  public void initialize(FieldMatch constraintAnnotation) {
+      this.field = constraintAnnotation.field();
+      this.fieldMatch = constraintAnnotation.fieldMatch();
+  }
+  
+  public boolean isValid(Object value, 
+    ConstraintValidatorContext context) {
 
-    public boolean isValid(Object value, 
-      ConstraintValidatorContext context) {
-
-        Object fieldValue = new BeanWrapperImpl(value)
-          .getPropertyValue(field);
-        Object fieldMatchValue = new BeanWrapperImpl(value)
-          .getPropertyValue(fieldMatch);
-        
-        if (fieldValue != null) {
-            return fieldValue.equals(fieldMatchValue);
-        } else {
-            return fieldMatchValue == null;
-        }
-    }
+      Object fieldValue = new BeanWrapperImpl(value)
+        .getPropertyValue(field);
+      Object fieldMatchValue = new BeanWrapperImpl(value)
+        .getPropertyValue(fieldMatch);
+      
+     return fieldMatch != null && fieldValue.equals(fieldMatchValue);
+  }
 }

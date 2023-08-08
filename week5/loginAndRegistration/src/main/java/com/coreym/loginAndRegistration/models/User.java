@@ -2,50 +2,39 @@ package com.coreym.loginAndRegistration.models;
 
 import java.util.Date;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import com.coreym.loginAndRegistration.validators.FieldMatch;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
+
+// This class is used to inherit all required properties and methods for an Enity in Spring
 @Entity
 @Table(name="users")
-//@FieldMatch(field="password", fieldMatch="confirm", message="password and confirm password must match")
-public class User {
+//@FieldMatch(field="confirm", fieldMatch="password", message="Password must match Confirm Password")
+public class User extends Foo{
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
 	
+	@NotBlank(message="username is required")
 	@Size(min=2, max=200)
 	private String username;
 	
-	
-	@Email
+	@NotBlank(message="Email is required")
+	@Email(message="Incorrect email format. Try 'example@email.com'")
 	private String email;
 	
 	@Size(min=8, max=200)
 	private String password;
 	
+	@NotBlank(message="Confirm password is required")
 	@Transient
 	private String confirm;
 	
-	@Column(updatable=false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createdAt;
 	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;
 	
 	public User() {
 		
@@ -54,22 +43,13 @@ public class User {
 	public User(Long id, @Size(min = 2, max = 200) String username, @Email String email,
 			@Size(min = 8, max = 200) String password, String confirm, Date createdAt, Date updatedAt) {
 		super();
-		this.id = id;
 		this.username = username;
 		this.email = email;
 		this.password = password;
 		this.confirm = confirm;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 
 	public String getUsername() {
 		return username;
@@ -103,30 +83,5 @@ public class User {
 		this.confirm = confirm;
 	}
 
-	public Date getCreatedAt() {
-		return createdAt;
-	}
-
-	public void setCreatedAt(Date createdAt) {
-		this.createdAt = createdAt;
-	}
-
-	public Date getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Date updatedAt) {
-		this.updatedAt = updatedAt;
-	}
-	
-	@PrePersist
-	protected void onCreate() {
-		this.createdAt = new Date();
-	}
-	
-	@PreUpdate
-	protected void onUpdate() {
-		this.updatedAt = new Date();
-	}
 	
 }

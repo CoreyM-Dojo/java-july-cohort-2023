@@ -20,23 +20,38 @@
 <body>
 
 	<div class="container">
-		<c:out value="${loginError}"/>
-	   <h1>Login Page</h1>
-	   <form:form action="/login" method="post" modelAttribute="loginUser">
-	   		<form:errors path="*"></form:errors>
+	
+	   <h1>Registration</h1> 
+	   
+	   <form:form action="registration" method="post" modelAttribute="newUser">
+	   
+	   		<form:errors class="text-danger" path="*"></form:errors>
+	   	
+	   		<div class="form-group">
+	   			<form:label class="form-label" path="username">Username</form:label>
+	   			<form:errors class="text-danger" path="username"></form:errors>
+	   			<form:input class="form-control" path="username"></form:input>
+	   		</div>
 	   		<div class="form-group">
 	   			<form:label path="email">Email</form:label>
-	   			<form:input class="form-control" path="email" />
+	   			<form:errors class="text-danger" path="email"></form:errors>
+	   			<form:input class="form-control" path="email"></form:input>
 	   		</div>
 	   		<div class="form-group">
 	   			<form:label path="password">Password</form:label>
-	   			<form:input class="form-control" path="password" />
+	   			<form:errors class="text-danger" path="password"></form:errors>
+	   			<form:input type="password" class="form-control" path="password"></form:input>
 	   		</div>
-	   		<div class="form-froup">
-	   			<button class="btn btn-primary">Login</button>
+	   		<div class="form-group">
+	   			<form:label path="confirm">Confirm Password</form:label>
+	   			<form:errors class="text-danger" path="confirm"></form:errors>
+	   			<form:errors class="text-danger" path=""></form:errors>
+	   			<form:input type="password" class="form-control" path="confirm"></form:input>
+	   		</div>
+	   		<div class="form-group">
+	   			<button class="btn btn-primary">Register</button>
 	   		</div>
 	   </form:form>
-	
 	</div>
 </body>
 </html>

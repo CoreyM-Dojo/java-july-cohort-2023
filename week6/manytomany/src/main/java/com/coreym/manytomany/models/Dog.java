@@ -14,6 +14,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -52,6 +53,11 @@ public class Dog {
 			joinColumns=@JoinColumn(name="dog_id"),
 			inverseJoinColumns=@JoinColumn(name="trainer_id"))
 	private List<Trainer> trainers;
+	
+	@ManyToOne(fetch=FetchType.LAZY)
+	// This will allow the foreign_key to be null when creating a dog so you can add the3 relationship later - nullable
+	@JoinColumn(nullable= true, name="owner_id") 
+	private Owner owner;
 	
 	public Dog() {}
 	

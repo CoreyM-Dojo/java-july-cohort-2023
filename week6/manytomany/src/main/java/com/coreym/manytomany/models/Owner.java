@@ -15,6 +15,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
@@ -42,6 +43,9 @@ public class Owner {
 			inverseJoinColumns=@JoinColumn(name="friend2_id")
 			)
 	private List<Owner> friends;
+	
+	@OneToMany(mappedBy="owner",fetch=FetchType.LAZY)
+	private List<Dog> ownedDogs;
 
 	public Long getId() {
 		return this.id;

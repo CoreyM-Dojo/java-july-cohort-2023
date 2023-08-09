@@ -27,6 +27,11 @@ public class DogService {
 		return repo.save(dog);
 	}
 	
+	// Returns a list of Dogs that are not assigned to the specified trainer
+	public ArrayList<Dog> unassigned(Trainer t) {
+		return repo.findByTrainersNotContaining(t);
+	}
+	
 	
 
 }

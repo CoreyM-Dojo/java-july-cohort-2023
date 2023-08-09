@@ -1,5 +1,6 @@
 package com.coreym.manytomany.models;
 
+
 import java.util.Date;
 import java.util.List;
 
@@ -17,56 +18,30 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
 
 @Entity
-@Table(name="trainers")
-public class Trainer {
+@Table(name="owners")
+public class Owner {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
-	@Size(min=2,max=200)
 	private String name;
 
 	@Column(updatable = false)
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date createdAt;
-
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date updatedAt;
 	
+	// Adds the new table for the self join
 	@ManyToMany(fetch=FetchType.LAZY)
-	@JoinTable(
-			name="dogs_and_trainers",
-			joinColumns=@JoinColumn(name="trainer_id"),
-			inverseJoinColumns=@JoinColumn(name="dog_id"))
-	private List<Dog> dogs;
-	
-	
-	
-	public Trainer() {}
-	
-	
-	
-	
-
-	public Trainer(Long id, @NotBlank @Size(min = 2, max = 200) String name, Date createdAt, Date updatedAt) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.createdAt = createdAt;
-		this.updatedAt = updatedAt;
-	}
-	
-	
-
-
-
-
+	@JoinTable(name="friends",
+			joinColumns=@JoinColumn(name="friend1_id"),
+			inverseJoinColumns=@JoinColumn(name="friend2_id")
+			)
+	private List<Owner> friends;
 
 	public Long getId() {
 		return this.id;
@@ -82,17 +57,17 @@ public class Trainer {
 		return name;
 	}
 
-
-
-
-
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	public List<Owner> getFriends() {
+		return friends;
+	}
 
-
-
+	public void setFriends(List<Owner> friends) {
+		this.friends = friends;
+	}
 
 	public Date getCreatedAt() {
 		return this.createdAt;
@@ -103,30 +78,12 @@ public class Trainer {
 	}
 
 	public Date getUpdatedAt() {
-		return this.createdAt;
+		return this.updatedAt;
 	}
 
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
-
-
-	public List<Dog> getDogs() {
-		return dogs;
-	}
-
-
-
-
-
-	public void setDogs(List<Dog> dogs) {
-		this.dogs = dogs;
-	}
-
-
-
-
 
 	@PrePersist
 	protected void onCreate() {

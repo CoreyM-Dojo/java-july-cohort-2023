@@ -18,13 +18,25 @@
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Welcome</h1>
-   <a href="/dogs">Add Dog</a>
-   <a href="/trainers">Add Trainer</a>
-   <div class="container">
-   	<c:forEach var="trainer" items="${allTrainers}">
-   		<a href="/trainers/${trainer.id }">${trainer.name}</a>
-   	</c:forEach>
-   </div>
+	<div class="container">	
+	   <h1>${trainer.name}</h1>
+	   
+	   <c:forEach var="dog" items="${trainer.dogs}">
+	   		<p>
+	   			<a href="/dogs/${dog.id}">${dog.name}</a>
+	   		</p>
+	   </c:forEach>
+	</div>
+	
+	<form action="/trainers/add-dog" method="post">
+		<input type="hidden" name="trainer" value="${trainer.id}" />
+		<select name="dog">
+			<c:forEach var="assign" items="${unassignedDogs }">
+				<option value="${ assign.id}">${assign.name}</option>
+			</c:forEach>
+		</select>
+		<button class="btn btn-success">Add</button>
+	</form>
+   
 </body>
 </html>

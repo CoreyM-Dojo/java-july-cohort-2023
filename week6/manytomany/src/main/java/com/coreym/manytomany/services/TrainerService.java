@@ -27,6 +27,12 @@ public class TrainerService {
 		return repo.save(trainer);
 	}
 	
+	public void addDog(Trainer t, Dog d) {
+		
+		t.getDogs().add(d);
+		repo.save(t);
+	}
+	
 	
 
 }

@@ -10,4 +10,6 @@ import com.coreym.manytomany.models.Trainer;
 public interface DogRepository extends CrudRepository<Dog, Long> {
 
 	public ArrayList<Dog> findAll();
+	
+	public ArrayList<Dog> findByTrainersNotContaining(Trainer t);
 }

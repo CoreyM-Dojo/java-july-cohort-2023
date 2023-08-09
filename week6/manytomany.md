@@ -41,5 +41,6 @@
 - Joining a table with itself
 - Users - musicians
 - Users - Authors
+- Users - Friends
 - Classmates
 

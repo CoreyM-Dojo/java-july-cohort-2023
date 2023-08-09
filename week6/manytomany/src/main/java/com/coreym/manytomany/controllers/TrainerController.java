@@ -25,6 +25,9 @@ public class TrainerController {
 	@Autowired 
 	private TrainerService service;
 	
+	@Autowired
+	private DogService dogs;
+	
 	
 	@GetMapping("")
 	public String trainerForm(@ModelAttribute("trainer") Trainer trainer) {
@@ -41,6 +44,22 @@ public class TrainerController {
 		service.create(trainer);
 		
 		return "redirect:/";
+	}
+	
+	@GetMapping("/{id}")
+	public String viewTrainer(@PathVariable("id") Long id, Model model) {
+		Trainer selectedTrainer = service.find(id);
+		model.addAttribute("trainer", selectedTrainer);
+		model.addAttribute("unassignedDogs", dogs.unassigned(selectedTrainer) );
+		return "trainer.jsp";
+	}
+	
+	@PostMapping("/add-dog")
+	public String addDog(@RequestParam("trainer") Long trainerId, @RequestParam("dog") Long dogId) {
+		Trainer trainerChoice = service.find(trainerId);
+		Dog dogChoice = dogs.find(dogId);
+		service.addDog(trainerChoice, dogChoice);
+		return "redirect:/trainers/" + trainerId;
 	}
 	
 }

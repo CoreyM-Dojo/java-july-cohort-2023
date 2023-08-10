@@ -18,6 +18,16 @@
 - Belt Exam Rubric
 - Establish a workflow
 - Create your boiler plate
+- Snippets -> prewritten code that can be autocompleted with keywords
+    - Form groups
+    - foreach loops
+    - CRUD snippets
+    - post requests
+    - get requests
+    - anything else you feel is tedious to type that you know youll have to do a lot
+    - All programmers are lazy
+
+
 
 ### Exam Start
 
@@ -27,6 +37,13 @@
 - Create a clickable prototype
 - Follow your workflow
 
-### Common ErrorsS
+### Common Errors
+
+- 404
+- 405 -> Method not allowed
+- No BindingResult or ModelAttribute -> Check your form, check the controller route
+- Database does not exist -> create db manually or add ?createDatatbaseIfNotExist=true to the end of your mysql route
+- no getter or setter found for BLANK -> check your spelling, check your models
+
 
 ### Questions

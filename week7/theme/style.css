@@ -1,0 +1,79 @@
+:root {
+    --nav_color: #2A2D34;
+    --primary_color: #6761A8;
+    --secondary_color: #009B72;
+    --info_color: #009DDC;
+    --alert_color: #F26430;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.flexed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    background-color: var(--nav_color);
+}
+
+div.container {
+    justify-content: space-evenly;
+    font-size: 1.4em;
+}
+
+
+
+form.form {
+    align-items: flex-start;
+    gap: 20px;
+    padding: 35px;
+    color: lightgoldenrodyellow; 
+    border: solid grey 1px;
+    width: 20vw;
+    height: 50vh;
+    background-color: var(--primary_color);
+}
+
+form.form select {
+    width: 75%;
+    height: 25px;
+    border-radius: 5px;
+}
+
+.button-section {
+    display: flex;
+    justify-content: flex-end;
+    /* border: 1px solid black; */
+    width: 100%;
+}
+
+button {
+    width: 80px;
+    height: 35px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    font-size: 1.2rem;
+    color: lightgoldenrodyellow;
+}
+
+.button-info {
+    background-color: var(--info_color);
+}
+.button-edit {
+    background-color: var(--secondary_color);
+}
+.button-delete {
+    background-color: var(--alert_color);
+    
+}
+.button-submit {
+    background-color: var(--nav_color);
+}
+

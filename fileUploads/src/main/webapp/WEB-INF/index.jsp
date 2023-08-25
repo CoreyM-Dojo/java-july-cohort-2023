@@ -11,18 +11,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Home Page</title>
+    <title>Tacos</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/main.css"> <!-- change to match your file/naming structure -->
     <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script><!-- change to match your file/naming structure -->
 </head>
 <body>
-   <h1>Hello World</h1>
-   ${error}
-   <form action="/process" method="post">
-   		<input type="text" name="query" />
-   		<button>Submit</button>
+   
+   <form action="/" method="post" enctype="multipart/form-data">
+   		<label>Upload File:</label>
+   		<input name="fileUpload" type="file" />
+   		<button>Upload</button>
    </form>
+   
+   <c:forEach var="image" items="${images}">
+   	<div>
+   		<img width="300" src="uploads/${image}" alt="Display image" />
+   	</div>
+   </c:forEach>
 </body>
 </html>

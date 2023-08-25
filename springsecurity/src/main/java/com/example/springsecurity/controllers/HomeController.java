@@ -1,16 +1,16 @@
 package com.example.springsecurity.controllers;
 
-import java.util.Arrays;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.springsecurity.models.Ingredient;
+import com.example.springsecurity.services.IngredientService;
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 
 @Controller
 public class HomeController {
@@ -20,24 +20,25 @@ public class HomeController {
 	
 	@Autowired
 	private PokemonApiController api;
+	
+	@Autowired
+	private IngredientService ingService;
 
 	@GetMapping("/")
 	public String home() {
-		Gson gson = new Gson();
-		
-		JsonObject pokemon = api.getAllPokemon();
-		System.out.println(pokemon);
-//		JsonElement pokemonList =  pokemon.get("results");
-//		JsonObject[] pokemonArray = gson.fromJson(pokemonList, JsonObject[].class);
-//		JsonObject bulbasaur = pokemonArray[0];
-//		System.out.println(bulbasaur);
-//		System.out.println(bulbasaur.get("name"));
-		
-	
-		
-		
+//		api.getNutritionInfo("apple");
 		OidcUser creds = (OidcUser) ucid.getUserInfo();
 		System.out.println(creds.getEmail());
 		return "index.jsp";
 	}
+	
+	@PostMapping("/process")
+	public String process(@RequestParam("query") String query, RedirectAttributes redirectAttributes) {
+		System.out.println(query);		
+			Ingredient newIngredient = api.getNutritionInfo(query);
+//			redirectAttributes.addFlashAttribute("error", "Something went wrong with your query");
+		return "redirect:/";
+	}
+	
+	
 }

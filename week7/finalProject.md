@@ -11,7 +11,7 @@
         - first name
         - last name
         - email
-        - password
+        - createdRecipes - List<Recipe>
         - favoriteRecipes - List<Recipe>
         - ratedRecipes - List<Recipe>
         

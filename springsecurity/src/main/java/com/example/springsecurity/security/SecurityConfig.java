@@ -14,6 +14,9 @@ public class SecurityConfig {
 	@Bean
 	protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
+			.csrf(token -> {
+				token.disable();
+			})
 			.formLogin(Customizer.withDefaults())
 			.oauth2Login(Customizer.withDefaults())
 			.authorizeHttpRequests(authorizedRequest -> authorizedRequest.anyRequest().authenticated());

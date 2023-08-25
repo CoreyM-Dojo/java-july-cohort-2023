@@ -10,6 +10,8 @@ public class Config {
 	
 	@Value("${api.key}")
 	String apiKey;
+	@Value("${api.id}")
+	String apiId;
 	
 	@Value("${spring.security.oauth2.client.registration.google.client-id}")
 	String googleClientId;
@@ -29,6 +31,16 @@ public class Config {
 	}
 	
 	
+	
+	
+
+	public String getApiId() {
+		return apiId;
+	}
+
+
+
+
 
 	public String getGoogleClientId() {
 		return googleClientId;
